@@ -19,7 +19,7 @@
 
   </head>
   <body>
-    <div id="site-global-header" class="navbar navbar-static-top">
+    <div id="site-global-header" class="navbar navbar-inverse navbar-static-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
