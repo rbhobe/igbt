@@ -50,22 +50,14 @@
             <!--Sidebar content-->
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li class="active"><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
-              <li><a href="#">Link</a></li>
+              <li class="nav-header">Toolkit</li>
+              <li class="active"><a href="#">V<sub>ce,on</sub> and E<sub>ts</sub> vs. I<sub>c</sub></a></li>
+              <li><a href="#">P<sub>loss</sub> at duty cycle</a></li>
+              <li><a href="#">I vs. f<sub>switching</sub></a></li>
+              <li class="divider"></li>
+              <li class="nav-header">Help</li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Give us feedback</a></li>
             </ul>
           </div>
         </div>
@@ -82,8 +74,25 @@
         </div>
       </div>
     </div>
+
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+
+    <script type="text/javascript">
+
+        Parse.initialize("nMHlX6LAe9u4b8mrCf4Z6U7LFe8qqtmRyf2QJS4i", "j48WOEkenEsDmE70X63KzFNj12sH5TrZlsYbKnWY");
+
+        var TestObject = Parse.Object.extend("TestObject");
+        var testObject = new TestObject();
+        testObject.save({foo: "bar"}, {
+          success: function(object) {
+            alert("yay! it worked");
+          }
+        });
+
+    </script>
+
   </body>
 </html>
 
