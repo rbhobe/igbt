@@ -67,7 +67,7 @@
         <div class="span10">
             <!--Body content-->
             <div class="hero-unit">
-                <h1>graph</h1>
+                <h1>V<sub>ce,on</sub> vs. I<sub>c</sub></h1>
                 <div id="chart-area"></div>
             </div>
             <div class="row-fluid">
@@ -107,7 +107,7 @@
     } });
         });
     </script>
-    
+
   </body>
 </html>
 
