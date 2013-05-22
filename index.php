@@ -9,13 +9,15 @@
 
     <style type="text/css">
         /*body { background:url('http://img4-3.allyou.timeinc.net/i/2010/03/graph-paper-l.jpg'); }*/
-        body { background-image:url('resources/graph-20.png'); }
+        body { background-image:url('resources/graph-20.png'); font-family:'Palatino'; }
         #site-global-header { margin-bottom:20px; }
         #site-global-header .navbar-text.pull-right { margin-left:30px; }
         #stealth { height:28px; }
         .navbar .brand { padding:6px 20px 0px; }
         .sidebar-nav { padding:9px 0px; }
-        #chart-area { width:800px; height:350px; }
+        .hero-unit { padding:16px 32px; }
+        .hero-unit h1 { margin-bottom:16px; font-size:44px; }
+        #chart-area { min-width:700px; min-height:340px; }
     </style>
 
   </head>
@@ -73,6 +75,7 @@
         <div class="span10">
             <!--Body content-->
             <div class="hero-unit">
+                <h1>graph</h1>
                 <div id="chart-area"></div>
             </div>
             <div class="row-fluid">
@@ -90,7 +93,10 @@
     <script type="text/javascript">
         $.noConflict();
         jQuery(document).ready(function ($) {
-            $.plot($("#chart-area"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });
+            $.plot($("#chart-area"), [ { label: "F22", data: [ [10, 1], [17, -14], [30, 5] ], color:"#FF0" }, { label: "F35", data: [ [11, 13], [19, 11], [30, -7] ], color:"#00F" } ], { grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] } }, series: {
+      lines: { show: true },
+      points: { show: true },
+    } });
         });
     </script>
   </body>
