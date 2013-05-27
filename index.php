@@ -15,7 +15,7 @@
         #stealth { height:28px; }
         .navbar .brand { padding:6px 20px 0px; }
         .sidebar-nav { padding:9px 0px; }
-        .hero-unit { padding:16px 32px; }
+        .hero-unit { padding:16px 32px; background-color:transparent; }
         .hero-unit h1 { margin-bottom:16px; font-size:44px; }
         #chart-area { min-width:700px; min-height:340px; }
     </style>
