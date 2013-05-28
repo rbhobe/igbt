@@ -2,7 +2,7 @@
 include_once($_SERVER['DOCUMENT_ROOT'].'/common/compute/ComputeUtils.php');
 
 // User inputs
-$userPart = 'IRG4BC20UD';
+$userPart = isset($_GET['type']) ? $_GET['type'] : 'IRG4BC20UD';
 $userTj = 50;
 $userIMin = .7; // 10% of part's Irated
 $userIMax = 28; // 4X part's Irated
@@ -63,7 +63,7 @@ foreach($vceVals as $key => $vce) {
 }
 
 // Prepare the response
-$response = array('status' => 'ok', 'payload' => array( array('type' => 1, 'data' => $data) ) );
+$response = array('status' => $userPart, 'payload' => array( array('type' => 1, 'data' => $data) ) );
 
 header('Content-Type: application/json');
 echo json_encode($response);
