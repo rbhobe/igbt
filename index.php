@@ -55,7 +55,7 @@
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Toolkit</li>
-              <li class="active"><a href="#">F<sub>22</sub> Falcon</a></li>
+              <li class="active"><a href="#">F<sub>22</sub> Raptor</a></li>
               <li><a href="#">F<sub>35</sub> Joint Strike Fighter</a></li>
               <li><a href="#">F<sub>40</sub> SpaceGen Fighter</a></li>
               <li class="divider"></li>
