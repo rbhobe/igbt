@@ -61,7 +61,7 @@
               <li class="divider"></li>
               <li class="nav-header">Help</li>
               <li><a href="#">FAQ</a></li>
-              <li id="feedback-sidebar-link"><a href="#">Feedback - We're Listening</a></li>
+              <li id="feedback-sidebar-link"><a href="#">Feedback - We're Listening!</a></li>
             </ul>
           </div>
         </div>
