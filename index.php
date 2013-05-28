@@ -27,10 +27,11 @@
         #chart-actions { padding-left:36px; }
         #chart-actions .btn-large { margin-right:34px; }
         #chart-inputs form { margin-bottom:0; }
-        #chart-inputs #plot-irange-option-container { display: inline-block; width: 70px; margin-top: -14px; margin-left:18px; vertical-align: top; }
+        #chart-inputs #plot-irange-option-container { display: inline-block; width: 70px; margin-top: -5px; vertical-align: top; }
         #chart-area { min-width:500px; min-height:400px; }
         #feedback-sidebar-link { font-size:11px; }
         .btn { font-family:'Ubuntu'; }
+        h5 { display:inline-block; margin:0; margin-left:32px !important; vertical-align:top; margin-top:3px;  }
     </style>
 
   </head>
@@ -99,12 +100,14 @@
                           <span class="add-on">&deg;C</span>
                         </div>
 
+                        <h5>Range of I:</h5>
+
                         <div id="plot-irange-option-container">
                             <label class="radio">
                               <input type="radio" name="iRangeType" id="default-range" value="default" checked>
                               Default
                             </label>
-                            <label class="radio">
+                            <label class="radio" style="margin-top:-20px">
                               <input type="radio" name="iRangeType" id="custom-range" value="custom">
                               Custom
                             </label>
@@ -114,13 +117,13 @@
                             <input type="text" name="imin" value="0" placeholder="Imin" class="input-mini">
                             <span class="add-on">A</span>
                         </div>
-                        <span>to</span>
-                        <div class="input-append">
+                        <span style="font-size:13px; margin-left:4px; font-style:italic;">to</span>
+                        <div class="input-append" style="margin-left:6px;">
                             <input type="text" name="imax" value="4" placeholder="Imax" class="input-mini">
                             <span class="add-on">A</span>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-large">Plot</button>
+                        <button type="submit" class="btn btn-primary btn-large" style="margin-left:44px;">Plot</button>
                         <button type="submit" class="btn btn-large">Reset</button>
                         
                       </fieldset>
