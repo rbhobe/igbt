@@ -12,23 +12,25 @@
     <link href='http://fonts.googleapis.com/css?family=Josefine+Slab' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-        body { background-image:url('resources/graph-20.png'); font-family:'PT Serif'; } /* Palatino */
+        body { background-image:url('resources/graph-20.png'); font-family:'PT Serif'; min-height:800px } /* Palatino */
         #site-global-header { margin-bottom:20px; }
         #site-global-header .navbar-text.pull-right { margin-left:30px; }
         #stealth { height:28px; }
         .navbar .brand { padding:6px 20px 0px; }
         .sidebar-nav { padding:9px 0px; }
-        .nav-header { font-family:'Josefine Slab'; font-weight:300; }
-        .hero-unit { padding:16px 32px; background-color:transparent; }
-        .hero-unit h1 { margin-bottom:16px; font-size:44px; font-family:'Josefine Slab'; font-weight:300; display:inline-block; margin-right:40px; }
+        .nav-header { font-family:'Ubuntu'; font-weight:300; }
+        .hero-unit { padding:16px 32px 2px 32px; background-color:transparent; }
+        .hero-unit h1 { margin-bottom:16px; font-size:44px; font-family:'PT Serif'; font-weight:300; display:inline-block; margin-right:40px; }
         .hero-unit h1 span { font-size:22px; font-style:italic; font-family:'PT Serif'; }
         #chart-inputs { display:inline-block; }
         #chart-inputs fieldset > * { margin-left:12px; }
-
+        #chart-actions { padding-left:36px; }
+        #chart-actions .btn-large { margin-right:34px; }
         #chart-inputs form { margin-bottom:0; }
         #chart-inputs #plot-irange-option-container { display: inline-block; width: 70px; margin-top: -14px; margin-left:18px; vertical-align: top; }
-        #chart-area { min-width:700px; min-height:340px; }
-        #feedback-sidebar-link { font-size:12px; }
+        #chart-area { min-width:500px; min-height:400px; }
+        #feedback-sidebar-link { font-size:11px; }
+        .btn { font-family:'Ubuntu'; }
     </style>
 
   </head>
@@ -93,7 +95,7 @@
                         </select>
 
                         <div class="input-append">
-                          <input class="input-mini" name="tj" value="50" placeholder="Set Tj" type="text">
+                          <input class="input-mini" name="tj" placeholder="Set Tj" type="text">
                           <span class="add-on">&deg;C</span>
                         </div>
 
@@ -119,6 +121,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-large">Plot</button>
+                        <button type="submit" class="btn btn-large">Reset</button>
                         
                       </fieldset>
                     </form>
@@ -127,8 +130,10 @@
                 <div id="chart-area"></div>
             </div>
             <div class="row-fluid">
-                <div class="span12">
-                    <h2>inputs</h2>
+                <div class="span12" id="chart-actions">
+                    <button type="submit" class="btn btn-large">Download PDF</button>
+                    <button type="submit" class="btn btn-large">Download XLS</button>
+                    <button type="submit" class="btn btn-large">Download CSV</button>
                 </div>
             </div>
         </div>
@@ -158,7 +163,7 @@
         $.noConflict();
         var plot; 
         var plotOptions = { 
-                            grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] }, hoverable:true }, 
+                            grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] }, hoverable:true, borderColor:"#CCC" }, 
                             legend: { position: 'se' },
                             series: { lines: { show: true }, points: { show: true } },
                             xaxis: { min:0.5, max:3.2 },
@@ -173,7 +178,7 @@
                 var data = resp['payload'][0]['data'];
 
                 // Perform the plotting
-                plot = $.plot($("#chart-area"), [ { label: "F22 Raptor at T<sub>j</sub>=50C", data: data, color:"#19558d" } ], plotOptions);
+                plot = $.plot($("#chart-area"), [ { label: "F<sub>22</sub> Raptor at T<sub>j</sub>=50C", data: data, color:"#19558d" } ], plotOptions);
 
                 // Show values when hovering on data points
                 var previousPoint = null;
