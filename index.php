@@ -85,7 +85,7 @@
     <script src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
 
     <script type="text/javascript">
-
+        /*
         Parse.initialize("nMHlX6LAe9u4b8mrCf4Z6U7LFe8qqtmRyf2QJS4i", "j48WOEkenEsDmE70X63KzFNj12sH5TrZlsYbKnWY");
 
         var TestObject = Parse.Object.extend("TestObject");
@@ -95,7 +95,7 @@
             alert("yay! it worked");
           }
         });
-
+        */
     </script>
 
     <script type="text/javascript">
