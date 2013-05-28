@@ -106,7 +106,7 @@
                             grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] }, hoverable:true }, 
                             legend: { position: 'se' },
                             series: { lines: { show: true }, points: { show: true } },
-                            xaxis: { min:0.8, max:3.2 },
+                            xaxis: { min:0.5, max:3.2 },
                             yaxis: { min:-2 }
                         };
 
