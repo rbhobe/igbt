@@ -118,7 +118,7 @@
                             <span class="add-on">A</span>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Plot</button>
+                        <button type="submit" class="btn btn-primary btn-large">Plot</button>
                         
                       </fieldset>
                     </form>
