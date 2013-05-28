@@ -102,10 +102,62 @@
         $.noConflict();
         jQuery(document).ready(function ($) {
 
-            plotOptions = { grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] } }, series: { lines: { show: true }, points: { show: true }, } };
+            plotOptions = { 
+                            grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] }, hoverable:true }, 
+                            legend: { position: 'se' },
+                            series: { lines: { show: true }, points: { show: true } },
+                            xaxis: { min:0.8, max:3.2 },
+                            yaxis: { min:-2 }
+                        };
 
-            $.plot($("#chart-area"), [ { label: "F22 Raptor", data: [ [10, 1], [17, -14], [30, 5] ], color:"#19558d" } ], plotOptions);
-            
+            // Get the data
+            $.get("/ajax/compute/ServiceA.php", { type: "ROHANPART123" }).done(function(resp) {
+              
+                var data = resp['payload'][0]['data'];
+
+                // Perform the plotting
+                var p = $.plot($("#chart-area"), [ { label: "F22 Raptor at T<sub>j</sub>=50C", data: data, color:"#19558d" } ], plotOptions);
+
+                // Show values when hovering on data points
+                var previousPoint = null;
+                $("#chart-area").bind("plothover", function (event, pos, item) {
+                    $("#x").text(pos.x.toFixed(2));
+                    $("#y").text(pos.y.toFixed(2));
+
+                    if (item) {
+                       if (previousPoint != item.dataIndex) {
+                           previousPoint = item.dataIndex;
+                                
+                           $("#tooltip").remove();
+                           xVal = data[item.dataIndex][0];
+                           yVal = data[item.dataIndex][1];
+                           showTooltip(item.pageX, item.pageY, "I = "+yVal+"A<br />"+"V<sub>ce,on</sub> = "+xVal+"V");
+                       }
+                    }
+                    else {
+                       $("#tooltip").remove();
+                       previousPoint = null;            
+                    }
+                });
+
+                
+            });
+
+
+            function showTooltip(x, y, contents) {
+                $('<div id="tooltip">' + contents + '</div>').css( {
+                    position: 'absolute',
+                    display: 'none',
+                    top: y + 5,
+                    left: x + 5,
+                    border: '1px solid #fdd',
+                    padding: '2px',
+                    'background-color': '#fee',
+                    opacity: 0.80
+                }).appendTo("body").fadeIn(200);
+            }
+
+
         });
     </script>
 
