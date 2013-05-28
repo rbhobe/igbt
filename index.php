@@ -18,6 +18,7 @@
         .hero-unit { padding:16px 32px; background-color:transparent; }
         .hero-unit h1 { margin-bottom:16px; font-size:44px; }
         #chart-area { min-width:700px; min-height:340px; }
+        #feedback-sidebar-link { font-size:12px; }
     </style>
 
   </head>
@@ -60,7 +61,7 @@
               <li class="divider"></li>
               <li class="nav-header">Help</li>
               <li><a href="#">FAQ</a></li>
-              <li><a href="#">Give us feedback</a></li>
+              <li id="feedback-sidebar-link"><a href="#">Feedback - We're Listening</a></li>
             </ul>
           </div>
         </div>
