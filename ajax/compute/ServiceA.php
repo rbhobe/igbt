@@ -48,7 +48,7 @@ foreach ($iVals as $i) {
     $high->x = $tjmax;
     $high->y = $vceValsTjmax;
 
-    $vceVals[] = ComputeUtils::getValueFromLinearInterpolationTwoDim($low, $high, $userTj);
+    $vceVals[] = number_format(ComputeUtils::getValueFromLinearInterpolationTwoDim($low, $high, $userTj), 3);
 
 }
 
