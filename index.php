@@ -6,17 +6,27 @@
     <!-- Bootstrap -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefine+Slab' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-        /*body { background:url('http://img4-3.allyou.timeinc.net/i/2010/03/graph-paper-l.jpg'); }*/
-        body { background-image:url('resources/graph-20.png'); font-family:'Palatino'; }
+        body { background-image:url('resources/graph-20.png'); font-family:'PT Serif'; } /* Palatino */
         #site-global-header { margin-bottom:20px; }
         #site-global-header .navbar-text.pull-right { margin-left:30px; }
         #stealth { height:28px; }
         .navbar .brand { padding:6px 20px 0px; }
         .sidebar-nav { padding:9px 0px; }
+        .nav-header { font-family:'Josefine Slab'; font-weight:300; }
         .hero-unit { padding:16px 32px; background-color:transparent; }
-        .hero-unit h1 { margin-bottom:16px; font-size:44px; }
+        .hero-unit h1 { margin-bottom:16px; font-size:44px; font-family:'Josefine Slab'; font-weight:300; display:inline-block; margin-right:40px; }
+        .hero-unit h1 span { font-size:22px; font-style:italic; font-family:'PT Serif'; }
+        #chart-inputs { display:inline-block; }
+        #chart-inputs fieldset > * { margin-left:12px; }
+
+        #chart-inputs form { margin-bottom:0; }
+        #chart-inputs #plot-irange-option-container { display: inline-block; width: 70px; margin-top: -14px; margin-left:18px; vertical-align: top; }
         #chart-area { min-width:700px; min-height:340px; }
         #feedback-sidebar-link { font-size:12px; }
     </style>
@@ -68,7 +78,52 @@
         <div class="span10">
             <!--Body content-->
             <div class="hero-unit">
-                <h1>V<sub>ce,on</sub> vs. I<sub>c</sub></h1>
+                <h1>V<sub>ce,on</sub> <span>vs.</span> I<sub>c</sub></h1>
+
+                <div id="chart-inputs">
+                    <form id="chart-input-values" class="form-inline">
+                      <fieldset>
+                        
+                        <select class="input-medium" name="part">
+                          <option value="0" selected="selected">Choose a part</option>
+                          <option value="1">Landing Gear</option>
+                          <option value="2">Cockpit</option>
+                          <option value="3">Engine</option>
+                          <option value="4">Wings and Flaps</option>
+                        </select>
+
+                        <div class="input-append">
+                          <input class="input-mini" name="tj" value="50" placeholder="Set Tj" type="text">
+                          <span class="add-on">&deg;C</span>
+                        </div>
+
+                        <div id="plot-irange-option-container">
+                            <label class="radio">
+                              <input type="radio" name="iRangeType" id="default-range" value="default" checked>
+                              Default
+                            </label>
+                            <label class="radio">
+                              <input type="radio" name="iRangeType" id="custom-range" value="custom">
+                              Custom
+                            </label>
+                        </div>
+
+                        <div class="input-append">
+                            <input type="text" name="imin" value="0" placeholder="Imin" class="input-mini">
+                            <span class="add-on">A</span>
+                        </div>
+                        <span>to</span>
+                        <div class="input-append">
+                            <input type="text" name="imax" value="4" placeholder="Imax" class="input-mini">
+                            <span class="add-on">A</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Plot</button>
+                        
+                      </fieldset>
+                    </form>
+                </div>
+
                 <div id="chart-area"></div>
             </div>
             <div class="row-fluid">
@@ -101,9 +156,8 @@
 
     <script type="text/javascript">
         $.noConflict();
-        jQuery(document).ready(function ($) {
-
-            plotOptions = { 
+        var plot; 
+        var plotOptions = { 
                             grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] }, hoverable:true }, 
                             legend: { position: 'se' },
                             series: { lines: { show: true }, points: { show: true } },
@@ -111,13 +165,15 @@
                             yaxis: { min:-2 }
                         };
 
-            // Get the data
+        jQuery(document).ready(function ($) {
+
+            // Get the data on first page load
             $.get("/ajax/compute/ServiceA.php", { type: "ROHANPART123" }).done(function(resp) {
               
                 var data = resp['payload'][0]['data'];
 
                 // Perform the plotting
-                var p = $.plot($("#chart-area"), [ { label: "F22 Raptor at T<sub>j</sub>=50C", data: data, color:"#19558d" } ], plotOptions);
+                plot = $.plot($("#chart-area"), [ { label: "F22 Raptor at T<sub>j</sub>=50C", data: data, color:"#19558d" } ], plotOptions);
 
                 // Show values when hovering on data points
                 var previousPoint = null;
@@ -141,6 +197,22 @@
                     }
                 });
 
+                
+            });
+    
+            // Intercept form submit, validate, and fire off form
+            $("#chart-input-values").submit(function (e) {
+                e.preventDefault(); //prevent default form submit
+
+                $.get('/ajax/compute/compute-and-dump-vals.php', $('#chart-input-values').serialize() ).done(function(resp) {
+                    console.log(resp);
+
+                    newData = [[0,0], [1,1], [2,2]];
+                    // redraw the graph
+                    plot.setData([ { label: "NextGen", data:newData, color:"#19558d" } ]); 
+                    plot.setupGrid(); //only necessary if your new data will change the axes or grid
+                    plot.draw();
+                });
                 
             });
 

@@ -1,4 +1,8 @@
 <?php
+header('Content-Type: application/json');
+echo json_encode(array('payload' => $_GET));
+exit();
+
 include_once($_SERVER['DOCUMENT_ROOT'].'/common/compute/ComputeUtils.php');
 
 // User inputs
