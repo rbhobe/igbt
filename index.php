@@ -101,10 +101,11 @@
     <script type="text/javascript">
         $.noConflict();
         jQuery(document).ready(function ($) {
-            $.plot($("#chart-area"), [ { label: "F22 Raptor", data: [ [10, 1], [17, -14], [30, 5] ], color:"#FF0" }, { label: "F35 Joint Strike Fighter", data: [ [11, 13], [19, 11], [30, -7] ], color:"#00F" } ], { grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] } }, series: {
-      lines: { show: true },
-      points: { show: true },
-    } });
+
+            plotOptions = { grid: { color: "#333", backgroundColor: { colors: ["#FFF", "#FFF"] } }, series: { lines: { show: true }, points: { show: true }, } };
+
+            $.plot($("#chart-area"), [ { label: "F22 Raptor", data: [ [10, 1], [17, -14], [30, 5] ], color:"#19558d" } ], plotOptions);
+            
         });
     </script>
 
