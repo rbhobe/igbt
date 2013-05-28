@@ -54,9 +54,9 @@
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Toolkit</li>
-              <li class="active"><a href="#">V<sub>ce,on</sub> and E<sub>ts</sub> vs. I<sub>c</sub></a></li>
-              <li><a href="#">P<sub>loss</sub> at duty cycle</a></li>
-              <li><a href="#">I vs. f<sub>switching</sub></a></li>
+              <li class="active"><a href="#">F<sub>22</sub> Falcon</a></li>
+              <li><a href="#">F<sub>35</sub> Joint Strike Fighter</a></li>
+              <li><a href="#">F<sub>40</sub> SpaceGen Fighter</a></li>
               <li class="divider"></li>
               <li class="nav-header">Help</li>
               <li><a href="#">FAQ</a></li>
