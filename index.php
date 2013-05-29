@@ -125,7 +125,7 @@
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-large" style="margin-left:44px;">Plot</button>
+                        <button type="submit" class="btn btn-success btn-large" style="margin-left:44px;">Plot</button>
                         <button type="submit" class="btn btn-large">Reset</button>
                         
                       </fieldset>
