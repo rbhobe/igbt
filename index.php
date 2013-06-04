@@ -9,29 +9,30 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Josefine+Slab' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-        body { background-image:url('resources/graph-20.png'); font-family:'PT Serif'; min-height:800px } /* Palatino */
-        #site-global-header { margin-bottom:20px; }
+        body { background-image:url('resources/graph-20.png'); font-family:'Open Sans'; min-height:700px } /* Palatino */
+        #site-global-header { margin-bottom:20px; font-family:'Ubuntu' }
         #site-global-header .navbar-text.pull-right { margin-left:30px; }
-        #stealth { height:28px; }
-        .navbar .brand { padding:6px 20px 0px; }
+        #stealth { height:36px; }
+        .navbar .brand { padding:2px 20px 0px; }
         .sidebar-nav { padding:9px 0px; }
         .nav-header { font-family:'Ubuntu'; font-weight:300; }
-        .hero-unit { padding:16px 32px 2px 32px; background-color:transparent; }
-        .hero-unit h1 { margin-bottom:16px; font-size:44px; font-family:'PT Serif'; font-weight:300; display:inline-block; margin-right:40px; }
-        .hero-unit h1 span { font-size:22px; font-style:italic; font-family:'PT Serif'; }
+        .hero-unit { padding:16px 32px 2px 32px; background-color:transparent; margin-bottom:16px; }
+        .hero-unit h1 { margin-top:0; margin-bottom:20px; font-size:44px; font-family:'PT Serif'; font-weight:300; display:inline-block; margin-right:8px; }
+        .hero-unit h1 span { font-size:22px; font-style:italic; font-family:'Open Sans'; }
         #chart-inputs { display:inline-block; }
         #chart-inputs fieldset > * { margin-left:12px; }
         #chart-actions { padding-left:36px; }
-        #chart-actions .btn-large { margin-right:34px; }
+        #chart-actions .btn-large { font-family:'Ubuntu' }
         #chart-inputs form { margin-bottom:0; }
         #chart-inputs #plot-irange-option-container { display: inline-block; width: 70px; margin-top: -5px; vertical-align: top; }
-        #chart-area { min-width:500px; min-height:400px; }
+        #plot-actions > .btn { margin-bottom:3px; }
+        #chart-area { min-width:500px; max-width:956px; min-height:400px; font-family:'PT Serif' }
         #feedback-sidebar-link { font-size:11px; }
-        .btn { font-family:'Lobster'; }
-        h5 { display:inline-block; margin:0; margin-left:38px !important; vertical-align:top; margin-top:3px; width:78px; }
+        .btn { font-family:'Open Sans'; }
+        h5 { display:inline-block; margin:0; vertical-align:center; width:83px; }
     </style>
 
   </head>
@@ -44,18 +45,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#"><img id="stealth" alt="stealth" src="resources/stealth.png" /></a>
+          <a class="brand" href="#"><img id="stealth" alt="stealth" src="resources/ezIGBT-1.png" /></a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
-              <a href="#">Login</a>
+              <a href="#" style="color:white;">Login</a>
             </p>
             <p class="navbar-text pull-right">
-              <a href="#">Register</a>
+              <a href="#" style="color:white;">Register</a>
             </p>
             <ul class="nav">
-              <li class="active"><a href="#">Product 1</a></li>
-              <li><a href="#">Product 2</a></li>
-              <li><a href="#">Product 3</a></li>
+              <li class="active"><a href="#">MODEL</a></li>
+              <li><a href="#">COMPARE</a></li>
+              <li><a href="#">RECOMMEND</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -68,9 +69,8 @@
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Toolkit</li>
-              <li class="active"><a href="#">F<sub>22</sub> Raptor</a></li>
-              <li><a href="#">F<sub>35</sub> Joint Strike Fighter</a></li>
-              <li><a href="#">F<sub>40</sub> SpaceGen Fighter</a></li>
+              <li class="active"><a href="#">V<sub>ce,on</sub> &amp; E<sub>ts</sub></a></li>
+              <li><a href="#">P<sub>loss</sub> &amp; Heatsink R<sub>th</sub></a></li>
               <li class="divider"></li>
               <li class="nav-header">Help</li>
               <li><a href="#">FAQ</a></li>
@@ -80,67 +80,93 @@
         </div>
         <div class="span10">
             <!--Body content-->
-            <div class="hero-unit">
-                <h1>V<sub>ce,on</sub> <span>vs.</span> I<sub>c</sub></h1>
+                <div class="hero-unit">
 
-                <div id="chart-inputs">
-                    <form id="chart-input-values" class="form-inline">
-                      <fieldset>
-                        
-                        <select class="input-medium" name="part">
-                          <option value="0" selected="selected">Choose a part</option>
-                          <option value="1">Landing Gear</option>
-                          <option value="2">Cockpit</option>
-                          <option value="3">Engine</option>
-                          <option value="4">Wings and Flaps</option>
-                        </select>
+                    <div style="margin-bottom:0px; margin-top:6px;">
 
-                        <div class="input-append">
-                          <input class="input-mini" name="tj" placeholder="Set Tj" type="text">
-                          <span class="add-on">&deg;C</span>
-                        </div>
+                    <h1>V<sub>ce,on</sub> <span>vs.</span> I<sub>c</sub></h1>
 
-                        <h5>Plot for range of I:</h5>
+                    <div id="chart-inputs">
+                        <form id="chart-input-values" class="form-inline">
+                          <fieldset>
+                            
+                            <select class="input-medium" name="part">
+                              <option value="0" selected="selected">Choose a part</option>
+                              <option value="1">Landing Gear</option>
+                              <option value="2">Cockpit</option>
+                              <option value="3">Engine</option>
+                              <option value="4">Wings and Flaps</option>
+                            </select>
 
-                        
+                            <div class="input-append">
+                              <input class="input-mini" name="tj" placeholder="Set Tj" type="text">
+                              <span class="add-on">&deg;C</span>
+                            </div>
 
-                        <div class="input-append">
-                            <input type="text" name="imin" value="0" placeholder="Imin" class="input-mini">
-                            <span class="add-on">A</span>
-                        </div>
-                        <span style="font-size:13px; margin-left:4px; font-style:italic;">to</span>
-                        <div class="input-append" style="margin-left:6px;">
-                            <input type="text" name="imax" value="4" placeholder="Imax" class="input-mini">
-                            <span class="add-on">A</span>
-                        </div>
+                            <h5>Range of I:</h5>
 
-                        <div id="plot-irange-option-container">
-                            <label class="radio">
-                              <input type="radio" name="iRangeType" id="default-range" value="default" checked>
-                              Default
-                            </label>
-                            <label class="radio" style="margin-top:-20px">
-                              <input type="radio" name="iRangeType" id="custom-range" value="custom">
-                              Custom
-                            </label>
-                        </div>
+                            
 
-                        <button type="submit" class="btn btn-success btn-large" style="margin-left:44px;">Plot</button>
-                        <button type="submit" class="btn btn-large">Reset</button>
-                        
-                      </fieldset>
-                    </form>
+                            <div class="input-append" style="margin-left:0">
+                                <input type="text" name="imin" value="0.0" placeholder="Imin" class="input-mini" style="width:30px;">
+                                <span class="add-on">A</span>
+                            </div>
+                            <span style="font-size:13px; margin-left:4px; font-style:italic;">to</span>
+                            <div class="input-append" style="margin-left:6px;">
+                                <input type="text" name="imax" value="4.0" placeholder="Imax" class="input-mini" style="width:30px;">
+                                <span class="add-on">A</span>
+                            </div>
+
+                            <!-- <div id="plot-irange-option-container">
+                                <label class="radio">
+                                  <input type="radio" name="iRangeType" id="default-range" value="default" checked>
+                                  Default
+                                </label>
+                                <label class="radio" style="margin-top:-20px">
+                                  <input type="radio" name="iRangeType" id="custom-range" value="custom">
+                                  Custom
+                                </label>
+                            </div> -->
+
+                            
+                            
+                          </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="plot-actions" class="" style="display:inline-block;margin-left:36px;">
+                        <button type="submit" class="btn btn-success btn-large" style="font-weight:bold;text-transform:uppercase;">Plot</button>
+                        <button type="submit" class="btn" style="height:44px;">Reset</button>
+                    </div>
+
+                    <div style="clear:both"></div>
+
                 </div>
 
                 <div id="chart-area"></div>
             </div>
+
             <div class="row-fluid">
+
                 <div class="span12" id="chart-actions">
-                    <button type="submit" class="btn btn-large">Download PDF</button>
-                    <button type="submit" class="btn btn-large">Download XLS</button>
-                    <button type="submit" class="btn btn-large">Download CSV</button>
+                    <div class="btn-group">
+                      <button class="btn btn-large">Download PDF</button>
+                      <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Download XLS</a>
+                            <a href="#">Download CSV</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <button class="btn btn-large" style="margin-left:20px">Get Free Part Samples<i style="margin-left:8px;" class="icon-chevron-right"></i></button>
                 </div>
+
             </div>
+
         </div>
       </div>
     </div>
