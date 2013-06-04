@@ -56,7 +56,7 @@
             <ul class="nav">
               <li class="active"><a href="#">MODEL</a></li>
               <li><a href="#">COMPARE</a></li>
-              <li><a href="#">RECOMMEND</a></li>
+              <li><a href="#">HOW IT WORKS</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
