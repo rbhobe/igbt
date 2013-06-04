@@ -11,6 +11,9 @@
     <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+    <link rel="icon" href="resources/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
+
     <style type="text/css">
         body { background-image:url('resources/graph-20.png'); font-family:'Open Sans'; min-height:700px } /* Palatino */
         #site-global-header { margin-bottom:20px; font-family:'Ubuntu' }
