@@ -64,13 +64,13 @@
     </div>
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span2">
+        <div class="span2" style="width:200px;">
             <!--Sidebar content-->
             <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Toolkit</li>
-              <li class="active"><a href="#">V<sub>ce,on</sub> &amp; E<sub>ts</sub></a></li>
-              <li><a href="#">P<sub>loss</sub> &amp; Heatsink R<sub>th</sub></a></li>
+              <li class="active"><a href="#">Part V<sub>ce,on</sub> &amp; E<sub>ts</sub></a></li>
+              <li><a href="#">Part P<sub>loss</sub> &amp; Heatsink R<sub>th</sub></a></li>
               <li class="divider"></li>
               <li class="nav-header">Help</li>
               <li><a href="#">FAQ</a></li>
@@ -78,7 +78,7 @@
             </ul>
           </div>
         </div>
-        <div class="span10">
+        <div class="span10" style="margin-left:10px">
             <!--Body content-->
                 <div class="hero-unit">
 
