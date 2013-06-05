@@ -138,7 +138,7 @@
                     </div>
 
                     <div id="plot-actions" class="" style="display:inline-block;margin-left:36px;">
-                        <button type="submit" class="btn btn-success btn-large" style="font-weight:bold;text-transform:uppercase;">Plot</button>
+                        <button type="submit" class="btn btn-success btn-large" style="font-weight:bold;">Plot</button>
                         <button type="submit" class="btn" style="height:44px;">Reset</button>
                     </div>
 
