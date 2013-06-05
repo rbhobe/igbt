@@ -16,25 +16,25 @@
 
     <style type="text/css">
         body { background-image:url('resources/graph-20.png'); font-family:'Open Sans'; min-height:700px } /* Palatino */
-        #site-global-header { margin-bottom:20px; font-family:'Ubuntu' }
+        #site-global-header { margin-bottom:20px; }
         #site-global-header .navbar-text.pull-right { margin-left:30px; }
         #stealth { height:36px; }
         .navbar .brand { padding:2px 20px 0px; }
         .sidebar-nav { padding:9px 0px; }
-        .nav-header { font-family:'Ubuntu'; font-weight:300; }
+        .nav-header { font-weight:300; }
         .hero-unit { padding:16px 32px 2px 32px; background-color:transparent; margin-bottom:16px; }
-        .hero-unit h1 { margin-top:0; margin-bottom:20px; font-size:44px; font-family:'PT Serif'; font-weight:300; display:inline-block; margin-right:8px; }
-        .hero-unit h1 span { font-size:22px; font-style:italic; font-family:'Open Sans'; }
+        .hero-unit h1 { margin-top:0; margin-bottom:20px; font-size:44px; font-weight:300; display:inline-block; margin-right:8px; }
+        .hero-unit h1 span { font-size:22px; font-style:italic; }
         #chart-inputs { display:inline-block; }
         #chart-inputs fieldset > * { margin-left:12px; }
         #chart-actions { padding-left:36px; }
-        #chart-actions .btn-large { font-family:'Ubuntu' }
+        #chart-actions .btn-large {  }
         #chart-inputs form { margin-bottom:0; }
         #chart-inputs #plot-irange-option-container { display: inline-block; width: 70px; margin-top: -5px; vertical-align: top; }
         #plot-actions > .btn { margin-bottom:3px; }
-        #chart-area { min-width:500px; max-width:956px; min-height:400px; font-family:'PT Serif' }
+        #chart-area { min-width:500px; max-width:956px; min-height:400px; }
         #feedback-sidebar-link { font-size:11px; }
-        .btn { font-family:'Open Sans'; }
+        .btn {  }
         h5 { display:inline-block; margin:0; vertical-align:center; width:83px; }
     </style>
 
